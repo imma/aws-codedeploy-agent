@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+function version {
+  local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
+  source "$shome/script/profile"
+
+  local ver_aws_codedeploy_agent="0.0.1"
+  jq -n --arg aws_codedeploy_agent "$ver_aws_codedeploy_agent" '{aws_codedeploy_agent: $aws_codedeploy_agent}'
+}
+
+version "$@"
